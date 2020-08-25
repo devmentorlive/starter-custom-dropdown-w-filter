@@ -27,6 +27,8 @@
 }
 
 .dropdown .selected-value {
+}
+.dropdown .selected-value input {
   position: relative;
   overflow: hidden;
   background-color: #fff;
