@@ -4,9 +4,6 @@
   cursor: default;
 }
 
-.dropdown .control {
-}
-
 .dropdown .arrow {
   border-color: #999 transparent transparent;
   border-style: solid;
@@ -27,7 +24,12 @@
 }
 
 .dropdown .selected-value {
+  display: flex;
+  box-sizing: border-box;
+  line-height: 1.5;
+  font-size: 1rem;
 }
+
 .dropdown .selected-value input {
   position: relative;
   overflow: hidden;
@@ -35,12 +37,11 @@
   border: 1px solid #ccc;
   border-radius: 2px;
   box-sizing: border-box;
-
   cursor: default;
   outline: none;
   padding: 8px 52px 8px 10px;
   transition: all 200ms ease;
-  display: flex;
+  width: 100%;
 }
 
 .dropdown .options {

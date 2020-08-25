@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-
 import "./styles.css";
 
 export default function Dropdown({
@@ -16,7 +15,7 @@ export default function Dropdown({
   useEffect(() => {
     addClickHandlers();
     return () => removeClickHandlers();
-  }, []);
+  });
 
   function filter(options) {
     return options.filter(
@@ -46,16 +45,24 @@ export default function Dropdown({
     if (value) return value[label];
   }
 
+  function selectOption(option) {
+    setQuery("");
+    onChange(option);
+    toggle();
+  }
+
   return (
     <div style={{ width: "200px" }}>
-      <div className="dropdown">
-        <div className="control">
-          <div className="selected-value">
+      <div className='dropdown'>
+        <div className='control'>
+          <div className='selected-value'>
             <input
-              type="text"
+              type='text'
               placeholder={value ? value[label] : prompt}
               ref={ddRef}
+              onMouseDown={toggle}
               onClick={toggle}
+              onTouchEnd={toggle}
               value={displayValue()}
               onChange={(e) => {
                 onChange(null);
@@ -71,11 +78,9 @@ export default function Dropdown({
               className={`option ${
                 value === option ? "selected" : ""
               }`}
-              onClick={() => {
-                setQuery("");
-                onChange(option);
-                toggle();
-              }}
+              onMouseDown={() => selectOption(option)}
+              onTouchEnd={() => selectOption(option)}
+              onClick={() => selectOption(option)}
             >
               {option[label]}
             </div>
