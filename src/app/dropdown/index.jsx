@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import "./styles.css";
 
@@ -9,12 +9,38 @@ export default function Dropdown({
   label,
 }) {
   const [open, setOpen] = useState(false);
+  const ddRef = useRef(null);
+
+  useEffect(() => {
+    addClickHandlers();
+    return () => removeClickHandlers();
+  }, []);
+
+  function addClickHandlers() {
+    ["click", "touchend"].map((e) =>
+      document.addEventListener(e, toggle, false)
+    );
+  }
+
+  function removeClickHandlers() {
+    ["click", "touchend"].map((e) =>
+      document.addEventListener(e, toggle, false)
+    );
+  }
+
+  function toggle(e) {
+    setOpen(e && e.target === ddRef.current);
+  }
 
   return (
     <div style={{ width: "200px" }}>
       <div className="dropdown">
-        <div className="control" onClick={() => setOpen(!open)}>
-          <div className="selected-value">
+        <div className="control">
+          <div
+            className="selected-value"
+            ref={ddRef}
+            onClick={toggle}
+          >
             {value ? value[label] : "Select country"}
           </div>
           <div className={`arrow ${open ? "open" : ""}`} />
@@ -27,7 +53,7 @@ export default function Dropdown({
               }`}
               onClick={() => {
                 onChange(option);
-                setOpen(false);
+                toggle();
               }}
             >
               {option[label]}
