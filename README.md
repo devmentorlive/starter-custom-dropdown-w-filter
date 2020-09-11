@@ -2,9 +2,9 @@
 
 ## Starter Repository
 
-This repo is the starting point for the [screencast, build a custom dropdown component with built-in filtering](https://)
+This repo is the starting point for the [screencast, build a custom dropdown component with built-in filtering](https://www.youtube.com/watch?v=elC357w9VOA&utm_source=github&utm_medium=readme&utm_campaign=custom-dropdown-w-filtering)
 
-You can get the full code by [clicking here](https://) @ DevmentorLive.
+You can get the full code by [clicking here](https://devmentor.live/screencasts/custom-dropdown-with-filter-and-mobile-support-in-react-js-hooks-api?utm_source=github&utm_medium=readme&utm_campaign=custom-dropdown-w-filtering) @ DevmentorLive.
 
 This starter repo contains the code you will need to follow along with the screencast and includes the css and any assets you might need for it to display exactly as in the screencast.
 
